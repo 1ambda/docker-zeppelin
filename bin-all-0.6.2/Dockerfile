@@ -1,4 +1,4 @@
-FROM 1ambda/zeppelin-base:latest
+FROM 1ambda/docker-zeppelin:base
 MAINTAINER 1ambda <1amb4a@gmail.com>
 
 ENV Z_VERSION="0.6.2"
