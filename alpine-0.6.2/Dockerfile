@@ -1,7 +1,7 @@
-FROM 1ambda/docker-zeppelin:tag
+FROM 1ambda/docker-zeppelin:alpine-0.6.2
 MAINTAINER 1ambda <1amb4a@gmail.com>
 
-ENV Z_VERSION="0.0.0"
+ENV Z_VERSION="0.6.2"
 ENV LOG_TAG="[ZEPPELIN_${Z_VERSION}]:" \
     Z_HOME="/zeppelin"
 
