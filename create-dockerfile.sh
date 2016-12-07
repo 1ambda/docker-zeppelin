@@ -25,7 +25,7 @@ if [ ! -d "$BASE_DIR" ]; then
 fi
 
 DOCKER_DIR="${LINUX}/${VERSION}${POSTFIX}"
-DOCKER_TAG="${LINUX}-${VERSION}${POSTFIX}"
+BASE_IMAGE_TAG="${LINUX}-base${POSTFIX}"
 
 if [ ! -d "$DOCKER_DIR" ]; then
     echo "${TAG} Creating Directory: ${DOCKER_DIR}"
@@ -34,9 +34,10 @@ if [ ! -d "$DOCKER_DIR" ]; then
     echo "${TAG} Copying File: ${DOCKER_DIR}/Dockerfile"
     cp Dockerfile.template ${DOCKER_DIR}/Dockerfile
 
+    echo "${TAG} Set Base Image Tag: ${TAG}"
+    sed -i '' -e "s/docker-zeppelin:tag/docker-zeppelin:${BASE_IMAGE_TAG}/g" ${DOCKER_DIR}/Dockerfile
     echo "${TAG} Set Version: ${VERSION}"
     sed -i '' -e "s/Z_VERSION=\"0.0.0\"/Z_VERSION=\"${VERSION}\"/g" ${DOCKER_DIR}/Dockerfile
-    sed -i '' -e "s/docker-zeppelin:tag/docker-zeppelin:${DOCKER_TAG}/g" ${DOCKER_DIR}/Dockerfile
 else
     echo "${TAG} Directory already exists: ${DOCKER_DIR}"
 fi
