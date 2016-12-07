@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM 1ambda/docker-zeppelin:centos-base
 MAINTAINER 1ambda <1amb4a@gmail.com>
 
 ENV LOG_TAG="[ZEPPELIN_BASE_R]:"

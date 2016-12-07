@@ -1,4 +1,4 @@
-FROM 1ambda/docker-zeppelin:base-alpine
+FROM 1ambda/docker-zeppelin:alpine-base
 MAINTAINER 1ambda <1amb4a@gmail.com>
 
 ENV LOG_TAG="[ZEPPELIN_BASE_PYTHON]:"
