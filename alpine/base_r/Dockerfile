@@ -28,17 +28,6 @@ RUN echo "$LOG_TAG Install R related packages" && \
     R -e "install.packages('Rcpp', repos='http://cran.us.r-project.org', lib='$R_LIBS')" && \
     Rscript -e "library('devtools', lib.loc='$R_LIBS'); library('Rcpp', lib.loc='$R_LIBS'); devtools::install_github('ramnathv/rCharts', lib='$R_LIBS')"
 
-RUN echo "$LOG_TAG Install python related packages" && \
-        # for numpy: https://github.com/docker-library/python/issues/112
-        ln -s /usr/include/locale.h /usr/include/xlocale.h && \
-        apk add --no-cache --virtual=python_deps \
-            py-numpy freetype libpng tk tcl && \
-        apk add --no-cache --virtual=python_build_deps \
-            musl-dev linux-headers gfortran \
-            freetype-dev py-numpy-dev@testing \
-            py-numpy python-dev libpng-dev libxml2-dev libxslt-dev \
-            tk-dev tcl-dev
-
 RUN R -e "install.packages('gridSVG', repos='http://cran.us.r-project.org', lib='$R_LIBS')"
 
 RUN echo "$LOG_TAG Cleanup" && \
