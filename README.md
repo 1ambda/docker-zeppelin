@@ -2,14 +2,14 @@
 
 # docker-zeppelin
 
-Docker images for [Apache Zeppelin](http://zeppelin.apache.org) based on ubuntu 16.04 which including 
+All-in-one Docker image for [Apache Zeppelin](http://zeppelin.apache.org) based on ubuntu with
 
 - **Java 8**
-- **R with basic packages** 
-- **Python 2, 3** with basic packages (but recommend to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin)
-- **miniconda3** for conda support in Zeppelin
+- **R** with basic packages
+- **Python 2, 3** with basic packages (but it's recommended to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin)
+- **miniconda3** for [conda interpreter](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin
 
-## Supported tags and respective `Dockerfile` links
+## Supported tags
 
 * `0.7.1` (based on [0.7.1](https://github.com/1ambda/docker-zeppelin/blob/master/0.7.1/Dockerfile))
 * `0.7.0` (based on [0.7.0](https://github.com/1ambda/docker-zeppelin/blob/master/0.7.0/Dockerfile))
@@ -28,7 +28,7 @@ $ docker exec -it zeppelin-0.7.1 bash   # localhost terminal
 $ tail -F logs/*                        # inside docker container 
 ```
 
-## Install additional python, r packages
+## Install additional python, R packages
 
 It's recommended to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin, instead of installing packages for local python
 
