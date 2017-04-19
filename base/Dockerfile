@@ -33,6 +33,7 @@ RUN echo "$LOG_TAG Install java8" && \
 
 # http://chrisstrelioff.ws/sandbox/2014/06/04/install_and_setup_python_and_packages_on_ubuntu_14_04.html
 RUN echo "$LOG_TAG Install python related packages" && \
+    apt-get -y update && \
     apt-get install -y python-dev python-pip && \
     apt-get install -y gfortran && \
     # numerical/algebra packages
