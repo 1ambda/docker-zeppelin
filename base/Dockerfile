@@ -31,10 +31,22 @@ RUN echo "$LOG_TAG Install java8" && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/oracle-jdk8-installer
 
+# should install conda first before numpy, matploylib since pip and python will be installed by conda
+RUN echo "$LOG_TAG Install conda related packages" && \
+    apt-get -y update && \
+    apt-get install -y bzip2 ca-certificates \
+    libglib2.0-0 libxext6 libsm6 libxrender1 \
+    git mercurial subversion && \
+    echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
+    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.11-Linux-x86_64.sh -O ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p /opt/conda && \
+    rm ~/miniconda.sh
+ENV PATH /opt/conda/bin:$PATH
+
 # http://chrisstrelioff.ws/sandbox/2014/06/04/install_and_setup_python_and_packages_on_ubuntu_14_04.html
 RUN echo "$LOG_TAG Install python related packages" && \
     apt-get -y update && \
-    apt-get install -y python-dev python-pip && \
+    apt-get install -y python-dev && \
     apt-get install -y gfortran && \
     # numerical/algebra packages
     apt-get install -y libblas-dev libatlas-dev liblapack-dev && \
@@ -44,16 +56,6 @@ RUN echo "$LOG_TAG Install python related packages" && \
     apt-get install -y python-tk libxml2-dev libxslt-dev zlib1g-dev && \
     pip install numpy && \
     pip install matplotlib
-
-RUN echo "$LOG_TAG Install conda related packages" && \
-    apt-get install -y bzip2 ca-certificates \
-    libglib2.0-0 libxext6 libsm6 libxrender1 \
-    git mercurial subversion && \
-    echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
-    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.11-Linux-x86_64.sh -O ~/miniconda.sh && \
-    /bin/bash ~/miniconda.sh -b -p /opt/conda && \
-    rm ~/miniconda.sh
-ENV PATH /opt/conda/bin:$PATH
 
 # https://www.r-bloggers.com/how-to-install-r-on-linux-ubuntu-16-04-xenial-xerus/
 RUN echo "$LOG_TAG Install R related packages" && \

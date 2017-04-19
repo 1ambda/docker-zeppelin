@@ -6,8 +6,8 @@ All-in-one Docker image for [Apache Zeppelin](http://zeppelin.apache.org) based 
 
 - **Java 8**
 - **R** with basic packages
-- **Python 2, 3** with basic packages (but it's recommended to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin)
-- **miniconda3** for [conda interpreter](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin
+- **Python 3** with basic packages (but it's recommended to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin)
+- **miniconda2** for [conda interpreter](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin
 
 ## Supported tags
 
@@ -35,7 +35,7 @@ It's recommended to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/in
 ```bash
 $ docker exec -it zeppelin-0.7.1 bash   # localhost terminal
 
-# install python2 packages inside docker container
+# install python packages inside docker container
 $ pip install flask
 
 # install R packages inside docker container
@@ -43,6 +43,15 @@ $ R -e "install.packages('knitr', repos='http://cran.us.r-project.org')"
 ```
 
 ## Tips
+
+### Can't run python interpreter
+
+```js
+org.apache.thrift.TApplicationException: Internal error processing getFormType
+...
+```
+
+You should run spark interpreter before python interpreter. ([ZEPPELIN-2422](https://issues.apache.org/jira/browse/ZEPPELIN-2422))
 
 ### Networking with systems on other hosts
 
