@@ -28,6 +28,17 @@ $ docker exec -it zeppelin-0.7.1 bash   # localhost terminal
 $ tail -F logs/*                        # inside docker container 
 ```
 
+Additionally, you can set `logs` and `notebook` dirs like
+
+```bash
+$ docker run -it --name zeppelin --rm -p 8080:8080 \ 
+-v $PWD/logs:/logs \ 
+-v $PWD/notebook:/notebook \
+-e ZEPPELIN_NOTEBOOK_DIR='/notebook' \
+-e ZEPPELIN_LOG_DIR='/logs' \
+--name zeppelin 1ambda/docker-zeppelin:0.7.1
+```
+
 ## Install additional python, R packages
 
 It's recommended to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin, instead of installing packages for local python
