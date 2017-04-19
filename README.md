@@ -21,6 +21,13 @@ Docker images for [Apache Zeppelin](http://zeppelin.apache.org) based on ubuntu 
 $ docker run -it --name zeppelin --rm --net=host -p 8080:8080 -p 4000:4000 1ambda/docker-zeppelin:0.7.1
 ```
 
+If you want to see other interpreters' logs
+
+```bash
+$ docker exec -it zeppelin-0.7.1 bash   # localhost terminal
+$ tail -F logs/*                        # inside docker container 
+```
+
 ## Dockerfile Details
 
 ### Exposed Ports
