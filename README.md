@@ -7,7 +7,7 @@ All-in-one Docker image for [Apache Zeppelin](http://zeppelin.apache.org) based 
 - **Java 8**
 - **R** with basic packages
 - **Python 3** with basic packages (but it's recommended to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin)
-- **miniconda2** for [conda interpreter](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin
+- **miniconda3** for [conda interpreter](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin
 
 ## Supported tags
 
@@ -43,8 +43,6 @@ $ R -e "install.packages('knitr', repos='http://cran.us.r-project.org')"
 ```
 
 ## Tips
-
-You should run spark interpreter before python interpreter. ([ZEPPELIN-2422](https://issues.apache.org/jira/browse/ZEPPELIN-2422))
 
 ### Networking with systems on other hosts
 
