@@ -44,13 +44,6 @@ $ R -e "install.packages('knitr', repos='http://cran.us.r-project.org')"
 
 ## Tips
 
-### Can't run python interpreter
-
-```js
-org.apache.thrift.TApplicationException: Internal error processing getFormType
-...
-```
-
 You should run spark interpreter before python interpreter. ([ZEPPELIN-2422](https://issues.apache.org/jira/browse/ZEPPELIN-2422))
 
 ### Networking with systems on other hosts
