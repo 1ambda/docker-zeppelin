@@ -6,8 +6,8 @@ All-in-one Docker image for [Apache Zeppelin](http://zeppelin.apache.org) based 
 
 - **Java 8**
 - **R** with basic packages
-- **Python 3** with basic packages (but it's recommended to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin)
-- **miniconda3** for [conda interpreter](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin
+- **Python 2** with basic packages (but it's recommended to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin)
+- **miniconda2** for [conda interpreter](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin
 
 ## Supported tags
 
