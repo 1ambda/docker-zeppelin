@@ -4,10 +4,10 @@
 
 Docker images for [Apache Zeppelin](http://zeppelin.apache.org) based on ubuntu 16.04 which including 
 
-- Java 8
-- basic R packages
-- basic Python packages
-- miniconda3
+- **Java 8**
+- **R with basic packages** 
+- **Python 2, 3** with basic packages (but recommend to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin)
+- **miniconda3** for conda support in Zeppelin
 
 ## Supported tags and respective `Dockerfile` links
 
@@ -26,6 +26,23 @@ If you want to see other interpreters' logs
 ```bash
 $ docker exec -it zeppelin-0.7.1 bash   # localhost terminal
 $ tail -F logs/*                        # inside docker container 
+```
+
+## Install additional python, r packages
+
+It's recommended to use [%python.conda](http://zeppelin.apache.org/docs/0.7.1/interpreter/python.html#conda) in Zeppelin, instead of installing packages for local python
+
+```bash
+$ docker exec -it zeppelin-0.7.1 bash   # localhost terminal
+
+# install python2 packages inside docker container
+$ pip install flask
+
+# install python3 packages inside docker container
+$ pip3 install flask
+
+# install R packages inside docker container
+$ R -e "install.packages('knitr', repos='http://cran.us.r-project.org')"
 ```
 
 ## Dockerfile Details
