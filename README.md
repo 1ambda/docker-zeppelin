@@ -2,24 +2,30 @@
 
 # docker-zeppelin
 
-Docker images for [Apache Zeppelin](http://zeppelin.apache.org) on various platforms (alpine, centos, ubuntu)
+Docker images for [Apache Zeppelin](http://zeppelin.apache.org) based on ubuntu 16.04 which including 
+
+- Java 8
+- basic R packages
+- basic Python packages
+- miniconda3
 
 ## Supported tags and respective `Dockerfile` links
 
-### Alpine
+* `0.7.1` (based on [0.7.1](https://github.com/1ambda/docker-zeppelin/blob/master/0.7.1/Dockerfile))
+* `0.7.0` (based on [0.7.0](https://github.com/1ambda/docker-zeppelin/blob/master/0.7.0/Dockerfile))
+* `0.6.2` (based on [0.6.2](https://github.com/1ambda/docker-zeppelin/blob/master/0.6.2/Dockerfile))
 
-* `alpine-0.6.2` (based on [alpine/base/Dockerfile](https://github.com/1ambda/docker-zeppelin/blob/master/alpine/base/Dockerfile))
-* `alpine-0.6.2_r` (based on [alpine/base_r/Dockerfile](https://github.com/1ambda/docker-zeppelin/blob/master/alpine/base_r/Dockerfile))
-* `alpine-0.6.2_python` (based on [alpine/base_python/Dockerfile](https://github.com/1ambda/docker-zeppelin/blob/master/alpine/base_python/Dockerfile))
-
-Since alpine linux doesn't have graphical device, some function may not work (e.g `plot` in R) 
-
-## How to run
-
-Publish ports 8080 (web) and 7077 (spark master)
+## How to run 
 
 ```bash
-$ docker run -it --name zeppelin --rm \ 
-  -p 8080:8080 -p 7077:7077 \
-  1ambda/docker-zeppelin:alpine-0.6.2_r
+$ docker run -it --name zeppelin --rm --net=host -p 8080:8080 -p 4000:4000 1ambda/docker-zeppelin:0.7.1
 ```
+
+## Dockerfile Details
+
+### Exposed Ports
+
+- `8080` (zeppelin web)
+- `7070` (spark master)
+- `4000` (spark web) 
+
