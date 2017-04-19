@@ -18,7 +18,7 @@ All-in-one Docker image for [Apache Zeppelin](http://zeppelin.apache.org) based 
 ## How to run 
 
 ```bash
-$ docker run -it --name zeppelin --rm --net=host -p 8080:8080 -p 4000:4000 1ambda/docker-zeppelin:0.7.1
+$ docker run -it --name zeppelin --rm -p 8080:8080 1ambda/docker-zeppelin:0.7.1
 ```
 
 If you want to see other interpreters' logs
@@ -38,18 +38,14 @@ $ docker exec -it zeppelin-0.7.1 bash   # localhost terminal
 # install python2 packages inside docker container
 $ pip install flask
 
-# install python3 packages inside docker container
-$ pip3 install flask
-
 # install R packages inside docker container
 $ R -e "install.packages('knitr', repos='http://cran.us.r-project.org')"
 ```
 
-## Dockerfile Details
+## Tips
 
-### Exposed Ports
+### Networking with systems on other hosts
 
-- `8080` (zeppelin web)
-- `7070` (spark master)
-- `4000` (spark web) 
+Docker container can't connect external system if they are not on the same docker network. (e.g containers launched by docker-compose)  
+So if you want to connect other systems you can use `--net=host` option, but [it might not work for OSX](https://github.com/docker/for-mac/issues/68) 
 

@@ -34,7 +34,7 @@ RUN echo "$LOG_TAG Install java8" && \
 # http://chrisstrelioff.ws/sandbox/2014/06/04/install_and_setup_python_and_packages_on_ubuntu_14_04.html
 RUN echo "$LOG_TAG Install python related packages" && \
     apt-get -y update && \
-    apt-get install -y python-dev python3-pip && \
+    apt-get install -y python-dev python-pip && \
     apt-get install -y gfortran && \
     # numerical/algebra packages
     apt-get install -y libblas-dev libatlas-dev liblapack-dev && \
@@ -42,12 +42,8 @@ RUN echo "$LOG_TAG Install python related packages" && \
     apt-get install -y libpng-dev libfreetype6-dev libxft-dev && \
     # for tkinter
     apt-get install -y python-tk libxml2-dev libxslt-dev zlib1g-dev && \
-    pip3 install numpy && \
-    pip3 install matplotlib && \
-    # should install after all pip3 are configured
-    apt-get install -y python-pip && \
     pip install numpy && \
-    pip install matplotlib && \
+    pip install matplotlib
 
 RUN echo "$LOG_TAG Install conda related packages" && \
     apt-get install -y bzip2 ca-certificates \
