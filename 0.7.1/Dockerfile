@@ -11,6 +11,11 @@ RUN echo "$LOG_TAG Download Zeppelin binary" && \
     rm -rf /zeppelin-${Z_VERSION}-bin-all.tgz && \
     mv /zeppelin-${Z_VERSION}-bin-all ${Z_HOME}
 
+RUN echo "$LOG_TAG Cleanup" && \
+    apt-get autoclean && \
+    apt-get clean && \
+    rm -rf /tmp
+
 EXPOSE 8080 7077 4000
 
 WORKDIR ${Z_HOME}
