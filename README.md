@@ -1,5 +1,15 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/1ambda/docker-zeppelin.svg) ![Docker Stars](https://img.shields.io/docker/stars/1ambda/docker-zeppelin.svg) ![Docker Automated buil](https://img.shields.io/docker/automated/1ambda/zeppelin-docker.svg)
 
+# Deprecated, Please use the official image.
+
+https://hub.docker.com/r/apache/zeppelin/
+
+For example,
+
+```sh
+docker run -p 8080:8080 --rm -v $PWD/logs:/logs -v $PWD/notebook:/notebook -e ZEPPELIN_LOG_DIR='/logs' -e ZEPPELIN_NOTEBOOK_DIR='/notebook' --name zeppelin apache/zeppelin:0.7.2
+```
+
 # docker-zeppelin
 
 All-in-one Docker image for [Apache Zeppelin](http://zeppelin.apache.org) based on ubuntu with
